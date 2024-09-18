@@ -1,0 +1,15 @@
+﻿2023_09_08优化内容.txt:
+1.针对有些网站关闭窗口，cookies失效问题优化，不再保存cookies
+2.修改了pytest-playwright 插件内容，context上下文设置session会话周期
+  简单来说全局打开一次浏览器窗口，登录后（保留第一个标签页不关闭），在第二个标签页测试
+3.不依赖于登录的场景，比如注册，登录用例，用独立context环境
+4.allure报告添加用例失败截图+视频 （去掉了tracing功能）
+5.多账号同时操作场景，也不保存cookie了，用context上下文管理
+6.其它细节优化：窗口自动最大化
+7.全局先登录，以前是autouse=True 用例之前自动执行的，有些同学返回，单独测登录的用例，会先多跑一次登录
+现在去掉autouse=True，在每个py测试用例中传login_first参数，实现触发先登录
+
+
+2024_04_19优化内容.txt:
+1.修改了pytest-playwright 插件内容，生成报告新增trace日志追踪
+2.allure报告可以下载trace日志
